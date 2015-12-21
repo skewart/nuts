@@ -99,9 +99,9 @@ app.use(function(err, req, res, next) {
     });
 });
 
-var server = app.listen(process.env.PORT || 5000, function () {
-    var host = server.address().address;
-    var port = server.address().port;
+var port = process.env.PORT || 5000,
+    host = process.env.HOST || '0.0.0.0';
 
+var server = app.listen(port, host, function () {
     console.log('Listening at http://%s:%s', host, port);
 });
